@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Krutika Paradkar | Cloud and Data Portfolio</title>
+<meta name="description" content="Computer Engineering student building cloud applications on AWS and data dashboards with Python, SQL and Generative AI.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%98%81%EF%B8%8F%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f5ff;--surface:#ffffff;--ink:#1a1740;--muted:#575380;--line:#dcd8f2;
+  --cloud:#4f35e8;--data:#0b8f7a;--on:#ffffff;--shadow:0 18px 40px -18px rgba(40,25,120,.35);
+  color-scheme:light;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0f0d24;--surface:#1a1736;--ink:#f0eeff;--muted:#aaa6d0;--line:#302c5c;
+    --cloud:#9a89ff;--data:#3ddbb5;--on:#0f0d24;--shadow:0 18px 40px -18px rgba(0,0,0,.7);color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0f0d24;--surface:#1a1736;--ink:#f0eeff;--muted:#aaa6d0;--line:#302c5c;
+  --cloud:#9a89ff;--data:#3ddbb5;--on:#0f0d24;--shadow:0 18px 40px -18px rgba(0,0,0,.7);color-scheme:dark;
+}
+html{scroll-behavior:smooth;scroll-padding-top:calc(72px + env(safe-area-inset-top,0px));height:auto}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Instrument Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:17px;line-height:1.6}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--cloud);outline-offset:3px;border-radius:6px}
+h1,h2,h3{font-family:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;line-height:1.08;margin:0;letter-spacing:-.02em}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+section{padding:72px 0}
+h2{font-size:clamp(30px,4.5vw,44px);margin-bottom:28px}
+
+/* header */
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:30}
+.bar{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:20px;text-decoration:none}
+nav{display:flex;gap:6px;flex-wrap:wrap}
+nav a{text-decoration:none;font-weight:500;font-size:15px;padding:8px 12px;border-radius:999px;color:var(--muted)}
+nav a:hover{background:var(--surface);color:var(--ink)}
+
+/* hero */
+.hero{padding:64px 0 40px}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(40px,6.4vw,76px);font-weight:800}
+.hero h1 .c{color:var(--cloud)}.hero h1 .d{color:var(--data)}
+.lead{font-size:19px;color:var(--muted);max-width:52ch;margin:22px 0 28px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:13px 22px;border-radius:12px;font-weight:600;text-decoration:none;border:2px solid var(--ink)}
+.btn.main{background:var(--ink);color:var(--bg)}
+.btn:hover{transform:translateY(-2px)}
+.meta{margin-top:26px;color:var(--muted);font-size:15px}
+.meta b{color:var(--ink)}
+
+/* hero window stack */
+.stack{position:relative;height:340px}
+.win{position:absolute;width:88%;background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
+.win .tb{display:flex;align-items:center;gap:6px;padding:10px 14px;border-bottom:1px solid var(--line);font-size:13px;color:var(--muted)}
+.win .tb i{width:10px;height:10px;border-radius:50%;background:var(--line);display:inline-block}
+.win .body{padding:16px}
+.w1{left:0;top:0}
+.w2{right:0;bottom:0}
+.row{display:flex;align-items:center;gap:10px;font-size:14px;margin:7px 0}
+.row span.f{flex:1;height:10px;border-radius:6px;background:var(--line)}
+.row b{font-weight:600;color:var(--cloud);font-size:13px}
+.bars{display:flex;align-items:flex-end;gap:10px;height:92px}
+.bars i{flex:1;border-radius:6px 6px 0 0;background:var(--data);opacity:.85}
+.chip{display:inline-block;padding:3px 10px;border-radius:999px;background:var(--bg);border:1px solid var(--line);font-size:12px;margin:8px 6px 0 0}
+
+/* projects */
+.projects{display:grid;gap:28px}
+.proj{background:var(--surface);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);overflow:hidden;display:grid;grid-template-columns:.9fr 1.4fr}
+.proj .side{padding:30px;color:var(--on)}
+.proj.cl .side{background:var(--cloud)}
+.proj.da .side{background:var(--data)}
+.proj .side h3{font-size:28px}
+.proj .side p{margin:14px 0 0;font-size:15px;opacity:.95}
+.proj .main{padding:30px}
+.proj ul{margin:0 0 18px;padding-left:20px}
+.proj li{margin:8px 0}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.tags span{font-size:13px;padding:4px 11px;border-radius:999px;border:1px solid var(--line);background:var(--bg)}
+.links{display:flex;gap:12px;flex-wrap:wrap}
+.links a{font-weight:600;font-size:15px;padding:9px 16px;border-radius:10px;border:2px solid var(--ink);text-decoration:none}
+.links a:first-child{background:var(--ink);color:var(--bg)}
+.note{font-size:14px;color:var(--muted);margin-top:14px}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px}
+.card h3{font-size:20px;margin-bottom:12px}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pills span{font-size:14px;padding:5px 12px;border-radius:999px;background:var(--bg);border:1px solid var(--line)}
+.card.k{border-top:4px solid var(--cloud)}.card.dk{border-top:4px solid var(--data)}
+
+/* lists */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.card ul{margin:0;padding-left:20px}.card li{margin:9px 0}
+.edu{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:baseline;border-top:2px solid var(--ink);padding-top:16px;margin-top:8px}
+.edu h3{font-size:22px}
+.edu p{margin:4px 0 0;color:var(--muted)}
+
+/* contact */
+.contact{background:var(--ink);color:var(--bg);border-radius:28px;padding:48px;margin-bottom:56px}
+.contact h2{margin-bottom:12px}
+.contact p{max-width:48ch;opacity:.85;margin:0 0 24px}
+.contact .btn{border-color:var(--bg);color:var(--bg)}
+.contact .btn.main{background:var(--bg);color:var(--ink)}
+footer{padding:0 0 40px;color:var(--muted);font-size:14px;text-align:center}
+
+@media (max-width:860px){
+  .hero .wrap{grid-template-columns:1fr}
+  .stack{height:300px;max-width:440px}
+  .proj{grid-template-columns:1fr}
+  .skills,.two{grid-template-columns:1fr}
+  nav a{padding:8px}
+  .contact{padding:32px 24px}
+}
+@media (max-width:560px){ nav{display:none} }
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn:hover{transform:none}}
+@media (prefers-reduced-motion:no-preference){.stack .w1{animation:rise .7s ease both}.stack .w2{animation:rise .7s .15s ease both}}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap bar">
+  <a class="logo" href="#top">Krutika Paradkar</a>
+  <nav aria-label="Sections"><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#credentials">Credentials</a><a href="#leadership">Leadership</a><a href="#contact">Contact</a></nav>
+</div></header>
+
+<main id="top">
+<section class="hero"><div class="wrap">
+  <div>
+    <h1>I build <span class="c">cloud apps</span> and <span class="d">data dashboards</span>.</h1>
+    <p class="lead">I’m a Computer Engineering student who connects Flask apps to AWS storage and turns datasets into dashboards with Python, SQL and Generative AI. I solve problems in Java and I’m looking for a technical internship.</p>
+    <div class="btns"><a class="btn main" href="#projects">See my projects</a><a class="btn" href="#contact">Get in touch</a></div>
+    <p class="meta"><b>B.Tech, Computer Engineering</b> at Cummins College of Engineering for Women, Nagpur. Graduating 2028.</p>
+  </div>
+  <div class="stack" aria-hidden="true">
+    <div class="win w1"><div class="tb"><i></i><i></i><i></i>&nbsp;Cloudnest</div><div class="body">
+      <div class="row"><span class="f"></span><b>report.pdf</b></div>
+      <div class="row"><span class="f"></span><b>notes.docx</b></div>
+      <div class="row"><span class="f"></span><b>data.csv</b></div>
+      <span class="chip">Amazon S3</span><span class="chip">Docker</span><span class="chip">Flask</span>
+    </div></div>
+    <div class="win w2"><div class="tb"><i></i><i></i><i></i>&nbsp;SkillScopeAI</div><div class="body">
+      <div class="bars"><i style="height:90%"></i><i style="height:68%"></i><i style="height:52%"></i><i style="height:76%"></i><i style="height:38%"></i><i style="height:60%"></i></div>
+      <span class="chip">Pandas</span><span class="chip">SQL</span><span class="chip">Streamlit</span>
+    </div></div>
+  </div>
+</div></section>
+
+<section id="projects"><div class="wrap">
+  <h2>Projects</h2>
+  <div class="projects">
+    <article class="proj cl">
+      <div class="side"><h3>Cloudnest</h3><p>Cloud-based file storage and management application.</p></div>
+      <div class="main">
+        <div class="tags"><span>Python</span><span>Flask</span><span>Amazon S3</span><span>AWS IAM</span><span>SQLite</span><span>Docker</span><span>Vercel</span></div>
+        <ul>
+          <li>Built sign-up, login and session-protected routes, with passwords stored as hashes.</li>
+          <li>Connected Amazon S3 through boto3 for upload, listing, download and deletion, with per-user key prefixes and ownership checks.</li>
+          <li>Added a 25 MB upload limit and a file-type allowlist, and documented least-privilege IAM permissions.</li>
+          <li>Containerized with Docker and Docker Compose, then deployed on Vercel.</li>
+        </ul>
+        <div class="links"><a href="https://cloud-storage-s3-lambda-cloudwatch.vercel.app/" target="_blank" rel="noopener">Open live demo</a><a href="https://github.com/krutika123-lab/cloud-storage-s3-lambda-cloudwatch" target="_blank" rel="noopener">View code on GitHub</a></div>
+      </div>
+    </article>
+    <article class="proj da">
+      <div class="side"><h3>SkillScopeAI</h3><p>AI-powered job market intelligence and career analytics platform.</p></div>
+      <div class="main">
+        <div class="tags"><span>Python</span><span>Pandas</span><span>NumPy</span><span>SQL</span><span>SQLite</span><span>Streamlit</span><span>Plotly</span><span>OpenAI API</span></div>
+        <ul>
+          <li>Built a Streamlit dashboard with KPIs, skill-demand, salary, location and experience-level analysis.</li>
+          <li>Cleaned and processed the data with Pandas and NumPy, and ran grouped SQL queries on SQLite.</li>
+          <li>Added a searchable job explorer with CSV download, plus a career skill-gap comparison.</li>
+          <li>Integrated the OpenAI API for a job-description analyzer and an “Ask Your Data” question box.</li>
+        </ul>
+        <div class="links"><a href="https://skillscopeai-24km8qrpycjpfn6px6buq8.streamlit.app/" target="_blank" rel="noopener">Open live demo</a><a href="https://github.com/krutika123-lab/SkillScopeAI" target="_blank" rel="noopener">View code on GitHub</a></div>
+        <p class="note">This is a demonstration built on 700 synthetic job-posting records, not live market data.</p>
+      </div>
+    </article>
+  </div>
+</div></section>
+
+<section id="skills"><div class="wrap">
+  <h2>Skills</h2>
+  <div class="skills">
+    <div class="card k"><h3>Programming and core CS</h3><div class="pills"><span>Java</span><span>Python</span><span>SQL</span><span>Data Structures and Algorithms (Java)</span><span>OOP</span><span>DBMS</span><span>Operating Systems</span><span>Computer Networks</span></div></div>
+    <div class="card k"><h3>Cloud and DevOps</h3><div class="pills"><span>AWS S3</span><span>AWS Lambda</span><span>AWS IAM</span><span>AWS CloudWatch</span><span>Docker</span><span>Docker Compose</span><span>Git</span><span>GitHub</span><span>Vercel</span></div></div>
+    <div class="card dk"><h3>Data analytics</h3><div class="pills"><span>Power BI</span><span>Microsoft Excel</span><span>SQL</span><span>Pandas</span><span>NumPy</span><span>Data Cleaning</span><span>Exploratory Data Analysis</span><span>Data Visualization</span><span>Dashboard Creation</span><span>Business Intelligence</span></div></div>
+    <div class="card dk"><h3>Generative AI for data and analytics</h3><div class="pills"><span>Large Language Models</span><span>Prompt Engineering</span><span>ChatGPT</span><span>Gemini</span><span>OpenAI API</span><span>Data Storytelling</span></div></div>
+    <div class="card" style="grid-column:1/-1"><h3>Web development, databases and tools</h3><div class="pills"><span>React.js</span><span>Node.js</span><span>Express.js</span><span>REST APIs</span><span>SQLite</span><span>MySQL</span><span>MongoDB</span><span>VS Code</span></div></div>
+  </div>
+  <div class="edu"><div><h3>B.Tech, Computer Engineering</h3><p>Cummins College of Engineering for Women, Nagpur (RTMNU)</p></div><p>Expected 2028 &nbsp;|&nbsp; CGPA 7.74/10</p></div>
+</div></section>
+
+<section id="credentials"><div class="wrap">
+  <h2>Certifications and achievements</h2>
+  <div class="two">
+    <div class="card k"><h3>Certifications and professional development</h3><ul>
+      <li>AWS Cloud Technical Essentials, Amazon Web Services (Coursera)</li>
+      <li>Data Structures and Algorithms, Amazon (Coursera)</li>
+      <li>Power BI Certification, Office Master Education</li>
+      <li>Microsoft Power BI Data Analyst Professional Certificate, Microsoft (Coursera)</li>
+      <li>GenAI for Data &amp; Analytics, Starweaver (Coursera)</li>
+    </ul></div>
+    <div class="card dk"><h3>Achievements</h3><ul>
+      <li>HackerRank Silver Problem Solving Badge, 521 points (<a href="https://hackerrank.com/profile/krutikaparadkar1" target="_blank" rel="noopener">profile</a>)</li>
+      <li>1st place, Alumni Portal Development Competition, CSI Student Chapter</li>
+      <li>Participant, Hack Fest 2025, GDG Cloud New Delhi × Agora</li>
+    </ul></div>
+  </div>
+</div></section>
+
+<section id="leadership"><div class="wrap">
+  <h2>Leadership</h2>
+  <div class="card"><ul>
+    <li>Technical Co-Head, CSI Student Chapter, CCOEW Nagpur</li>
+    <li>Content Co-Head, Robotics &amp; Automation Club, CCOEW Nagpur</li>
+    <li>PR &amp; Marketing Co-Head, Tech Alpha India</li>
+  </ul></div>
+</div></section>
+
+<section id="contact"><div class="wrap">
+  <div class="contact">
+    <h2>Let’s work together</h2>
+    <p>I’m open to Software Development, Python, Cloud and Data Analytics internships. Email me and I’ll reply quickly.</p>
+    <div class="btns">
+      <a class="btn main" href="mailto:krutikaparadkar1@gmail.com">krutikaparadkar1@gmail.com</a>
+      <a class="btn" href="https://linkedin.com/in/krutika-paradkar-5ab0b1326" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://github.com/krutika123-lab" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</div></section>
+</main>
+<footer><div class="wrap">© 2026 Krutika Paradkar. Nagpur, Maharashtra, India.</div></footer>
+</body>
+</html>
